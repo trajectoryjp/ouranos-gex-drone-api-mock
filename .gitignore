@@ -1,0 +1,15 @@
+# Ignore Files by Type
+
+*.env
+
+# Ignore Files
+
+# Ignore Directories
+
+.vscode/
+.trash/
+.husky/
+
+node_modules/
+dist/
+logs/
