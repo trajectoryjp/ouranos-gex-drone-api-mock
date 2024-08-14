@@ -8,13 +8,14 @@ import { ROUTES } from '../common/constants';
 import { AppConfig } from '../config';
 
 export async function SetRoutes(app: Application) {
-  const router = Router();
+  const routerAuth = Router();
+  const routerAIRMB = Router();
 
-  app.use(`${ROUTES.GEN_API}/${AppConfig.GEN_API_VERSION}`, router);
-  // app.use(`${ROUTES.UAS_API}/${AppConfig.UAS_API_VERSION}`, router);
+  app.use(`${ROUTES.GEN_API}/${AppConfig.GEN_API_VERSION}`, routerAuth);
+  app.use(`${ROUTES.UAS_API}/${AppConfig.UAS_API_VERSION}`, routerAIRMB);
 
-  new AuthRoutes(router);
-  // new AirMobilityRoutes(router);
+  new AuthRoutes(routerAuth);
+  // new AirMobilityRoutes(routerAIRMB);
 
   app.use((req, res, next) => {
     return cbError(res, HTTPSTATUS.NOT_FOUND, ERRORS.API_NOT_FOUND, { endPoint: req.path });
