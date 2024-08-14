@@ -1,4 +1,5 @@
-import { IAuthResponse } from '../interfaces';
+import { HTTP_RESPONSE_STATUS } from '../common/enums';
+import { IAuthConnect, IAuthResponse } from '../interfaces';
 import { ThrowError, generateAccessToken, logger } from '../utils';
 
 export class AuthService {
@@ -11,11 +12,17 @@ export class AuthService {
     return this.instance;
   };
 
-  public async login(email: string): Promise<Partial<IAuthResponse> | null> {
+  public async login(data: IAuthConnect): Promise<Partial<IAuthResponse> | null> {
     logger.info('AuthService - login()');
+
+    const { userID, organizationID } = data;
+
+    //after validating the user
+    const result = HTTP_RESPONSE_STATUS.COMPLETE;
     try {
       return {
-        token: generateAccessToken(email),
+        result,
+        token: generateAccessToken({ userID, organizationID }),
       };
     } catch (error) {
       throw ThrowError(error);
