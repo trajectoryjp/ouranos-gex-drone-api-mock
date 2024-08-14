@@ -2,8 +2,7 @@ import { Router } from 'express';
 import { APIS } from '../common/constants';
 import { ValidateRequest } from '../common/middleware/validation.middleware';
 import { AuthController } from '../controllers';
-import { loginDtoSchema } from '../dto';
-
+import { connectServerDtoSchema } from '../dto';
 
 export default class AuthRoutes {
   private AuthController: AuthController;
@@ -14,17 +13,14 @@ export default class AuthRoutes {
   }
 
   private configureRoutes() {
-
-
-    // POST /auth/login 
+    // POST /gen/api/generic/v3/connect-server
     this.router.post(
-      `${APIS.AUTH}/login`,
-      ValidateRequest(loginDtoSchema),
+      `/connect-server`,
+      ValidateRequest(connectServerDtoSchema),
       this.AuthController.login,
     );
 
     // Sample route with AUthenticate() middleware
     // this.router.get(`${APIS.AUTH}/logout`, Authenticate(), this.AuthController.logout);
-
   }
 }

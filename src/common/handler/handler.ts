@@ -4,11 +4,11 @@ import { logger } from '../../utils';
 import { IError } from '../interfaces';
 
 export const cb = (code: HTTPSTATUS, res: Response, responseData: any) => {
-  let response;
-  if (responseData) {
-    response = { data: responseData };
-  }
-  return res.status(code).json(response);
+  // let response;
+  // if (responseData) {
+  //   response = { responseData };
+  // }
+  return res.status(code).json(responseData);
 };
 export const cbError = (res: Response, code: HTTPSTATUS, type: IError, error: any) => {
   const errorContent = {
