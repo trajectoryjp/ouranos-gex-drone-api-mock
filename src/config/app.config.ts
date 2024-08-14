@@ -1,4 +1,5 @@
 import Ajv from 'ajv';
+import { ROUTES } from '../common/constants/routes.constants';
 
 require('dotenv').config();
 
@@ -30,6 +31,8 @@ export const AppConfig = {
   APP_ENV: process.env.APP_ENV || defaultConfig.APP_ENV,
   APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT, 10) : defaultConfig.APP_PORT,
   APP_ALLOWED_ORIGINS: ALLOWED_ORIGINS,
+  GEN_API_VERSION: 'v3',
+  UAS_API_VERSION: 'v3',
 };
 
 if (!validate(AppConfig)) {
