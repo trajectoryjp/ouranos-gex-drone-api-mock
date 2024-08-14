@@ -16,9 +16,10 @@ export class AuthController {
     logger.info('AuthController - login()');
 
     try {
-      const email = req?.body?.email as string;
+      const userID = req?.body?.userID as string;
+      const organizationID = req?.body?.organizationID as string;
       const password = req?.body?.password as string;
-      const response = await this.authService.login(email);
+      const response = await this.authService.login({ userID, organizationID, password });
 
       return cb(HTTPSTATUS.OK, res, response);
     } catch (error) {

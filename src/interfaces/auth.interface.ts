@@ -8,5 +8,17 @@ export interface IAuth {
 }
 
 export interface IAuthResponse {
-  token: string
+  result: string;
+  token: string;
+}
+
+export interface IAuthConnect {
+  userID: string;
+  organizationID: string;
+  password: string;
+}
+
+export interface IAuthTokenHeader {
+  userID: string;
+  organizationID: string;
 }

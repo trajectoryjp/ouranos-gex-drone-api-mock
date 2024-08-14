@@ -10,5 +10,16 @@ export const loginDtoSchema = {
 
 export interface LoginDto {
   email: string;
-  password: string
+  password: string;
 }
+
+export const connectServerDtoSchema = {
+  type: 'object',
+  properties: {
+    userID: { type: 'string' },
+    organizationID: { type: 'string' },
+    password: { type: 'string' },
+  },
+  required: ['userID', 'organizationID', 'password'],
+  additionalProperties: false,
+};
