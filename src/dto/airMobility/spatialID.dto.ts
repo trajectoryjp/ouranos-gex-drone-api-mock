@@ -10,3 +10,11 @@ export const spatialIDDtoSchema = {
 export interface GetObjectRequestDto {
   objectId: string;
 }
+
+export const IDArraySchema = {
+  type: 'array',
+  items: {
+    type: 'string',
+  },
+  additionalProperties: false,
+};

@@ -1,24 +1,43 @@
 export interface ISpatialInfoResponse {
+  result: ISpatialInfoObject;
+  error: IErrorType;
+}
+
+export interface ISpatialInfoAreaResponse {
   result: {
-    objectId: string;
-    terrain: Terrain;
-    building: Building;
-    restrictedArea: RestrictedArea;
-    emergencyArea: EmergencyArea;
-    reserveArea: ReserveArea;
-    channel: Channel;
-    overlayArea: OverlayArea;
-    weather: Weather;
-    weatherForecast: WeatherForecast;
-    microwave: Microwave;
-    groundRisk: Risk;
-    ariRisk: Risk;
+    objects: ISpatialInfoObject[];
   };
-  error: {
-    code: number;
-    message: string;
-    details: Array<Record<string, any>>;
-  };
+  error: IErrorType;
+}
+
+export interface ISpatialInfoRegisterRequest {
+  overwrite: boolean;
+  object: ISpatialInfoObject;
+}
+export interface ISpatialInfoFlightRegisterResponse {
+  objectId: string;
+  error: string;
+}
+
+export interface IErrorType {
+  code: number;
+  message: string;
+  details: Array<Record<string, any>>;
+}
+export interface ISpatialInfoObject {
+  objectId: string;
+  terrain: Terrain;
+  building: Building;
+  restrictedArea: RestrictedArea;
+  emergencyArea: EmergencyArea;
+  reserveArea: ReserveArea;
+  channel: Channel;
+  overlayArea: OverlayArea;
+  weather: Weather;
+  weatherForecast: WeatherForecast;
+  microwave: Microwave;
+  groundRisk: Risk;
+  ariRisk: Risk;
 }
 
 interface Terrain {
@@ -97,7 +116,7 @@ interface VoxelValue {
   vacant?: boolean;
 }
 
-interface ReserveVoxelValue {
+export interface ReserveVoxelValue {
   id: Id;
   reservationTime: ReservationTime;
 }
@@ -178,4 +197,27 @@ interface PlmnId {
 
 export interface ISpatialID {
   objectId: string;
+}
+export interface ISpatialInfoArea {
+  figure: IFigure;
+  requestType: string[];
+}
+
+export interface IFigure {
+  identification: {
+    ID: 'string';
+  };
+  tube: {
+    start: startEndCoordinates;
+    end: startEndCoordinates;
+    radian: number;
+  };
+  polygon: {};
+}
+
+interface startEndCoordinates {
+  latitude: number;
+  longitude: number;
+  altitude: number;
+  altitudeAttribute: string;
 }

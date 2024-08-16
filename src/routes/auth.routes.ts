@@ -19,8 +19,5 @@ export default class AuthRoutes {
       ValidateRequest(connectServerDtoSchema),
       this.AuthController.login,
     );
-
-    // Sample route with AUthenticate() middleware
-    // this.router.get(`${APIS.AUTH}/logout`, Authenticate(), this.AuthController.logout);
   }
 }
