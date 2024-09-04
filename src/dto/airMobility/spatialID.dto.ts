@@ -1,9 +1,9 @@
 export const spatialIDDtoSchema = {
   type: 'object',
   properties: {
-    objectID: { type: 'string' },
+    objectId: { type: 'string' },
   },
-  required: ['objectID'],
+  required: ['objectId'],
   additionalProperties: false,
 };
 

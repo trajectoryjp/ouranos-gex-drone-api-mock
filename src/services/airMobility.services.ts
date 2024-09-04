@@ -55,7 +55,7 @@ export class AirmobilityService {
 
     try {
       //retieve objectIDs from databse using spatialInfo
-      const objectIDs = ['12344'];
+      const objectIDs = ['12344', '23456'];
       const spatialDetailObjects = objectIDs.map((objectID) => getSpatialInfo(objectID));
       const errObj = commonError();
       return { result: { objects: spatialDetailObjects }, error: errObj };

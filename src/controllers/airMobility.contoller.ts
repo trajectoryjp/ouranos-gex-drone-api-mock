@@ -22,7 +22,7 @@ export class AirMobilityController {
     logger.info('AirMobilityController - getSpatialInformation()');
 
     try {
-      const objectID = req?.body?.objectID as string;
+      const objectID = req?.body?.objectId as string;
       const response = await this.airMobilityService.getSpatialInformation(objectID);
 
       return cb(HTTPSTATUS.OK, res, response);
@@ -59,7 +59,7 @@ export class AirMobilityController {
 
   registerSpatialInfo = async (req: Request, res: Response) => {
     logger.info('AirMobilityController - registerSpatialInfoasync()');
-
+    console.log('AirMobilityController - registerSpatialInfoasync()');
     try {
       const spatialInfo = req?.body?.spatialInfo as ISpatialInfoRegisterRequest;
       const response = await this.airMobilityService.registerSpatialInfo(spatialInfo);

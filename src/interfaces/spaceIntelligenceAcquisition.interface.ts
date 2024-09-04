@@ -26,18 +26,18 @@ export interface IErrorType {
 }
 export interface ISpatialInfoObject {
   objectId: string;
-  terrain: Terrain;
-  building: Building;
-  restrictedArea: RestrictedArea;
-  emergencyArea: EmergencyArea;
-  reserveArea: ReserveArea;
-  channel: Channel;
-  overlayArea: OverlayArea;
-  weather: Weather;
-  weatherForecast: WeatherForecast;
-  microwave: Microwave;
-  groundRisk: Risk;
-  ariRisk: Risk;
+  terrain?: Terrain;
+  building?: Building;
+  restrictedArea?: RestrictedArea;
+  emergencyArea?: EmergencyArea;
+  reserveArea?: ReserveArea;
+  channel?: Channel;
+  overlayArea?: OverlayArea;
+  weather?: Weather;
+  weatherForecast?: WeatherForecast;
+  microwave?: Microwave;
+  groundRisk?: Risk;
+  ariRisk?: Risk;
 }
 
 interface Terrain {
