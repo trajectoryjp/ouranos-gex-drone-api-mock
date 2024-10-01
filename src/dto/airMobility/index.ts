@@ -3,3 +3,4 @@ export * from './spatialInfoArea.dto';
 export * from './spatialInfo.dto';
 export * from './flightPlanReservation.dto';
 export * from './airSpace.dto';
+export * from './riskLevels.dto';

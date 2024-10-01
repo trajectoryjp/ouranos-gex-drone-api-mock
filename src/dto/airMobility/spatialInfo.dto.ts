@@ -42,8 +42,8 @@ export const reserveAreaValues = {
           period: {
             type: 'object',
             properties: {
-              startTime: { type: 'string' },
-              endTime: { type: 'string' },
+              startTime: { type: ['string', 'null'] },
+              endTime: { type: ['string', 'null'] },
             },
             required: ['startTime', 'endTime'],
             additionalProperties: false,
@@ -76,8 +76,8 @@ const voxelWeather = {
       currentWeather: {
         type: 'object',
         properties: {
-          startTime: { type: 'string' },
-          endTime: { type: 'string' },
+          startTime: { type: ['string', 'null'] },
+          endTime: { type: ['string', 'null'] },
           windDirection: { type: 'number' },
           windSpeed: { type: 'number' },
           cloudRate: { type: 'number' },
@@ -196,8 +196,8 @@ const weatherForecastSchema = {
           forecast: {
             type: 'object',
             properties: {
-              startTime: { type: 'string' },
-              endTime: { type: 'string' },
+              startTime: { type: ['string', 'null'] },
+              endTime: { type: ['string', 'null'] },
               windDirection: { type: 'number' },
               windSpeed: { type: 'number' },
               cloudRate: { type: 'number' },
@@ -322,8 +322,8 @@ export const spatialInfoAreaRequestDtoSchema = {
                 period: {
                   type: 'object',
                   properties: {
-                    startTime: { type: 'string' },
-                    endTime: { type: 'string' },
+                    startTime: { type: ['string', 'null'] },
+                    endTime: { type: ['string', 'null'] },
                   },
                   required: ['startTime', 'endTime'],
                   additionalProperties: false,

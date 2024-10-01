@@ -5,6 +5,7 @@ import { AirMobilityController } from '../controllers';
 import {
   airSpaceDtoSchema,
   flightPlanReservationDtoSchema,
+  riskLevelsDtoSchema,
   spatialIDDtoSchema,
   spatialInfoAreaDtoSchema,
   spatialInfoAreaRequestDtoSchema,
@@ -59,6 +60,12 @@ export default class AirMobilityRoutes {
       `/select-airspace-arrangement-stream`,
       ValidateRequest(airSpaceDtoSchema),
       this.AirMobilityController.selectAirspaceArrangementStream,
+    );
+
+    this.router.post(
+      `/get-risk-levels`,
+      ValidateRequest(riskLevelsDtoSchema),
+      this.AirMobilityController.getRiskLevels,
     );
   }
 }

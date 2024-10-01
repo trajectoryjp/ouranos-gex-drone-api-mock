@@ -10,6 +10,7 @@ import {
   ISpatialInfoRegisterRequest,
 } from '../interfaces';
 import { IAirSpace } from 'src/interfaces/airSpace.interface';
+import { IRiskLevels } from 'src/interfaces/riskLevels.interface';
 
 export class AirMobilityController {
   private airMobilityService: AirmobilityService;
@@ -102,6 +103,20 @@ export class AirMobilityController {
     try {
       const airSpace = req?.body?.airSpace as IAirSpace;
       const response = await this.airMobilityService.selectAirspaceArrangementStream(airSpace);
+      console.log(response);
+
+      return cb(HTTPSTATUS.OK, res, response);
+    } catch (error) {
+      return cbError(res, HTTPSTATUS.INTERNAL_SERVER_ERROR, ERRORS.INTERNAL_SERVER_ERROR, error);
+    }
+  };
+
+  getRiskLevels = async (req: Request, res: Response) => {
+    logger.info('AirMobilityController - getRiskLevels()');
+
+    try {
+      const riskLevelsBody = req?.body?.riskLevels as IRiskLevels;
+      const response = await this.airMobilityService.getRiskLevels();
 
       return cb(HTTPSTATUS.OK, res, response);
     } catch (error) {

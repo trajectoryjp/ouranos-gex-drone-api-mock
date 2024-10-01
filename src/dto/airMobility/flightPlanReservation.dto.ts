@@ -7,6 +7,6 @@ export const flightPlanReservationDtoSchema = {
     overwrite: { type: 'boolean' },
     area: reserveAreaValues,
   },
-  required: ['objectId', 'overwrite', 'area'],
+  required: ['overwrite', 'area'],
   additionalProperties: false,
 };
