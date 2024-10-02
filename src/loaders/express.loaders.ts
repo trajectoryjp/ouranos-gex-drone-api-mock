@@ -4,6 +4,7 @@ import cors from 'cors';
 import { SetRoutes } from '../routes';
 import passport from 'passport';
 import { AppConfig } from '../config';
+import morgan from 'morgan';
 
 export class ExpressLoader {
   constructor(private app: Application) {
@@ -19,7 +20,10 @@ export class ExpressLoader {
         credentials: true,
       }),
     );
-    this.app.use(passport.initialize())
+    this.app.use(passport.initialize());
+    if (AppConfig.APP_ENV === 'dev') {
+      this.app.use(morgan('dev'));
+    }
   }
 
   loadRoutes() {

@@ -25,7 +25,7 @@ const defaultConfig = {
   APP_ENV: 'dev',
   APP_PORT: 3001,
 };
-const ALLOWED_ORIGINS = ['http://localhost:5173', 'https://imoneyuyu.com'];
+const ALLOWED_ORIGINS = ['http://localhost:5173', 'https://imoneyuyu.com', 'http://localhost:3000'];
 
 export const AppConfig = {
   APP_ENV: process.env.APP_ENV || defaultConfig.APP_ENV,
