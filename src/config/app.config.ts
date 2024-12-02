@@ -1,4 +1,5 @@
 import Ajv from 'ajv';
+import { ROUTES } from '../common/constants/routes.constants';
 
 require('dotenv').config();
 
@@ -24,12 +25,14 @@ const defaultConfig = {
   APP_ENV: 'dev',
   APP_PORT: 3001,
 };
-const ALLOWED_ORIGINS = ['http://localhost:5173', 'https://imoneyuyu.com'];
+const ALLOWED_ORIGINS = ['http://localhost:5173', 'https://imoneyuyu.com', 'http://localhost:3000'];
 
 export const AppConfig = {
   APP_ENV: process.env.APP_ENV || defaultConfig.APP_ENV,
   APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT, 10) : defaultConfig.APP_PORT,
   APP_ALLOWED_ORIGINS: ALLOWED_ORIGINS,
+  GEN_API_VERSION: 'v3',
+  UAS_API_VERSION: 'v3',
 };
 
 if (!validate(AppConfig)) {
