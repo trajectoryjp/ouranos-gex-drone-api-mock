@@ -90,8 +90,8 @@ interface WeatherForecast {
 }
 
 interface Microwave {
-  mobile: Mobile;
-  wifi: Wifi;
+  mobile?: Mobile;
+  wifi?: Wifi;
 }
 
 interface Mobile {

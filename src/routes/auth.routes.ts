@@ -16,7 +16,7 @@ export default class AuthRoutes {
     // POST /gen/api/generic/v3/connect-server
     this.router.post(
       `/connect-server`,
-      ValidateRequest(connectServerDtoSchema),
+      // ValidateRequest(connectServerDtoSchema),
       this.AuthController.login,
     );
   }
