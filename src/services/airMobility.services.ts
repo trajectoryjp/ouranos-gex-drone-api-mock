@@ -12,6 +12,7 @@ import { ThrowError, commonError, logger } from '../utils';
 import { AIRMOBILITY_ERROR_CODES, OBJECT_TYPE } from '../common/enums/airMobility';
 import { IAirSpaceResponse, IAirSpaceResponseStream } from 'src/interfaces/airSpace.interface';
 import { getRiskLevelsDB } from '../utils/getRiskLevels.utils';
+import { readCarrierCodes, writeCarrierCodes } from '../utils/fileUtils';
 
 export class AirmobilityService {
   public static instance: AirmobilityService;
@@ -249,6 +250,24 @@ export class AirmobilityService {
         result: { riskLevels: riskLevelsArray.riskLevels },
         error: commonError(),
       };
+    } catch (error) {
+      throw ThrowError(error);
+    }
+  }
+
+  public async writeCarrierCodes(codes: Record<string, string>): Promise<any> {
+    try {
+      writeCarrierCodes(codes);
+      return { message: 'Carrier codes updated successfully' };
+    } catch (error) {
+      throw ThrowError(error);
+    }
+  }
+
+  public async getCarrierCodes(): Promise<any> {
+    try {
+      const codes = readCarrierCodes();
+      return codes;
     } catch (error) {
       throw ThrowError(error);
     }

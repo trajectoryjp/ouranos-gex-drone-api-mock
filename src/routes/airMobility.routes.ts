@@ -67,5 +67,9 @@ export default class AirMobilityRoutes {
       ValidateRequest(riskLevelsDtoSchema),
       this.AirMobilityController.getRiskLevels,
     );
+
+    this.router.post(`/carriers`, this.AirMobilityController.writeCarrierCodes);
+
+    this.router.get(`/carriers`, this.AirMobilityController.getCarrierCodes);
   }
 }
