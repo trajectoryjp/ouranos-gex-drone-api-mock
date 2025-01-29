@@ -44,7 +44,7 @@ export const spatialInfoAreaFigureDtoScehmma = {
     tube: tubeDtoSchema,
     polygon: polygonDtoSchema,
   },
-  required: ['identification', 'tube', 'polygon'],
+  required: ['identification'],
   additionalProperties: false,
 };
 

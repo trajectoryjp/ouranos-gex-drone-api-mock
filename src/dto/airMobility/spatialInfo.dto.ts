@@ -253,7 +253,6 @@ const microwaveSchema = {
       additionalProperties: false,
     },
   },
-  required: ['mobile', 'wifi'],
   additionalProperties: false,
 };
 

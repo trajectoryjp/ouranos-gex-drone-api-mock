@@ -123,4 +123,29 @@ export class AirMobilityController {
       return cbError(res, HTTPSTATUS.INTERNAL_SERVER_ERROR, ERRORS.INTERNAL_SERVER_ERROR, error);
     }
   };
+
+  writeCarrierCodes = async (req: Request, res: Response) => {
+    logger.info('AirMobilityController - writeCarrierCodes()');
+
+    try {
+      const codes = req?.body as Record<string, string>;
+      const response = await this.airMobilityService.writeCarrierCodes(codes);
+
+      return cb(HTTPSTATUS.OK, res, response);
+    } catch (error) {
+      return cbError(res, HTTPSTATUS.INTERNAL_SERVER_ERROR, ERRORS.INTERNAL_SERVER_ERROR, error);
+    }
+  };
+
+  getCarrierCodes = async (req: Request, res: Response) => {
+    logger.info('AirMobilityController - getCarrierCodes()');
+
+    try {
+      const response = await this.airMobilityService.getCarrierCodes();
+
+      return cb(HTTPSTATUS.OK, res, response);
+    } catch (error) {
+      return cbError(res, HTTPSTATUS.INTERNAL_SERVER_ERROR, ERRORS.INTERNAL_SERVER_ERROR, error);
+    }
+  };
 }
