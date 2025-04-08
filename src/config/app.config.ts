@@ -30,6 +30,10 @@ const ALLOWED_ORIGINS = [
   'https://imoneyuyu.com',
   'http://localhost:3000',
   'http://localhost:8080',
+  'http://localhost',
+  'http://localhost:4200',
+  'http://ec2-13-115-207-54.ap-northeast-1.compute.amazonaws.com',
+  'https://spvwdev.trajectory.jp'
 ];
 
 export const AppConfig = {
