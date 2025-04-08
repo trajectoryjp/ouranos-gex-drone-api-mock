@@ -1,0 +1,4 @@
+export enum HTTP_RESPONSE_STATUS {
+  SUCCESS = 'SUCCESS',
+  COMPLETE = 'COMPLETE',
+}
