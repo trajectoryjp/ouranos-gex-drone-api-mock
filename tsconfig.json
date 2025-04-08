@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist", // Specify the output directory for compiled files
+    "rootDir": "./src", // Specify the root directory of your source code
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enable compatibility with modules that use default exports
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names (only for case-sensitive file systems)
+    "strictPropertyInitialization": false, // Disable strict property initialization for demo purposes
+    "allowJs": true, // Allow JavaScript files to be included in the project
+    "declaration": true, // Generate declaration files (.d.ts)
+    "noEmit": false, // Allow emitting JavaScript files
+    "isolatedModules": false, // Disable incremental compilation
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*.ts"], // Specify the files to include in the compilation
+  "exclude": ["node_modules"] // Specify the files to exclude from the compilation
+}
