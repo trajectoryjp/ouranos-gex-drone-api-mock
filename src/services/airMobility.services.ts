@@ -13,6 +13,7 @@ import { AIRMOBILITY_ERROR_CODES, OBJECT_TYPE } from '../common/enums/airMobilit
 import { IAirSpaceResponse, IAirSpaceResponseStream } from 'src/interfaces/airSpace.interface';
 import { getRiskLevelsDB } from '../utils/getRiskLevels.utils';
 import { readCarrierCodes, writeCarrierCodes } from '../utils/fileUtils';
+import { getEmptySpatialInfo } from '../utils/emptyVoxelPayload.util';
 
 export class AirmobilityService {
   public static instance: AirmobilityService;
@@ -51,16 +52,22 @@ export class AirmobilityService {
   }
 
   public async getSpatialInfoArea(
-    spatialInfo: ISpatialInfoArea,
-  ): Promise<Partial<ISpatialInfoAreaResponse> | null> {
+    objectId: ISpatialInfoArea,
+  ): Promise<Partial<ISpatialInfoAreaResponse>[] | null> {
     logger.info('AirmobilityService - getSpatialInfoArea()');
 
     try {
-      //retieve objectIDs from databse using spatialInfo
       const objectIDs = ['12344', '23456'];
-      const spatialDetailObjects = objectIDs.map((objectID) => getSpatialInfo(objectID));
-      const errObj = commonError();
-      return { result: { objects: spatialDetailObjects }, error: errObj };
+      const resp = [] as ISpatialInfoAreaResponse[];
+
+      objectIDs.forEach((id) => {
+        const emptyVoxelObjects = [getEmptySpatialInfo(id)];
+        const spatialDetailObjects = [getSpatialInfo(id)];
+        resp.push({ result: { objects: emptyVoxelObjects } });
+        resp.push({ result: { objects: spatialDetailObjects } });
+      });
+
+      return resp;
     } catch (error) {
       throw ThrowError(error);
     }
