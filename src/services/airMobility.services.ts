@@ -79,7 +79,6 @@ export class AirmobilityService {
     logger.info('AirmobilityService - registerSpatialInfo()');
 
     try {
-      //save spatialInfo to database and retrieve objectID
       return {
         objectId: '1233434',
         error: AIRMOBILITY_ERROR_CODES.UNSPECIFIED,
@@ -95,7 +94,6 @@ export class AirmobilityService {
     logger.info('AirmobilityService - registerFlightPlanReservation()');
 
     try {
-      //save FlightPlanReservation to database and retrieve objectID
       return {
         objectId: '1233434',
         error: AIRMOBILITY_ERROR_CODES.UNSPECIFIED,
