@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    image: trajectory-mock-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spid-viewer-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - APP_ENV=dev
+      - APP_PORT=3000
+    networks:
+      - spid-network
+    volumes:
+      - ./data:/app/src/data
+    platform: linux/amd64 
+    restart: on-failure 
+
+networks:
+  spid-network:
+    driver: bridge

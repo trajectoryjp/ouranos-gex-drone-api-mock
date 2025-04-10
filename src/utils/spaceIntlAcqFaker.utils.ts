@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 export function getSpatialInfo(objectId: string): ISpatialInfoObject {
   if (objectId == '23456') {
     return {
-      objectId: objectId,
+      objectId: '0',
       terrain: {
         reference: 'WGS84',
         voxelValues: [
@@ -990,10 +990,7 @@ export function getSpatialInfo(objectId: string): ISpatialInfoObject {
       microwave: {
         mobile: {
           reference: 'string',
-          plmnId: {
-            mobileCountryCode: 'sfgg',
-            mobileNetworkCode: '44050',
-          },
+          plmnId: null,
           voxelValues: [
             { id: { ID: '20/1/931160/412864' }, RSI: 44 },
             { id: { ID: '20/1/931160/412865' }, RSI: 44 },
@@ -1063,7 +1060,7 @@ export function getSpatialInfo(objectId: string): ISpatialInfoObject {
     };
   }
   return {
-    objectId: objectId,
+    objectId: '0',
     terrain: {
       reference: 'WGS84',
       voxelValues: [
@@ -3889,10 +3886,7 @@ export function getSpatialInfo(objectId: string): ISpatialInfoObject {
     microwave: {
       mobile: {
         reference: 'string',
-        plmnId: {
-          mobileCountryCode: 'sfgg',
-          mobileNetworkCode: '44000',
-        },
+        plmnId: null,
         voxelValues: [
           { id: { ID: '20/0/931187/412852' }, RSI: 78 },
           { id: { ID: '20/0/931187/412853' }, RSI: 78 },
