@@ -41,7 +41,6 @@ export class AirMobilityController {
       res.write(JSON.stringify(response));
       return res.end();
     } catch (error) {
-      console.log(error);
       return cbError(res, HTTPSTATUS.INTERNAL_SERVER_ERROR, ERRORS.INTERNAL_SERVER_ERROR, error);
     }
   };
@@ -81,14 +80,9 @@ export class AirMobilityController {
 
   registerSpatialInfo = async (req: Request, res: Response) => {
     logger.info('AirMobilityController - registerSpatialInfoasync()');
-    console.log('AirMobilityController - registerSpatialInfoasync()');
     try {
       const spatialInfo = req?.body?.spatialInfo as ISpatialInfoRegisterRequest;
       const response = await this.airMobilityService.registerSpatialInfo(spatialInfo);
-      // const response = {
-      //   objectId: '0',
-      //   error: 'ErrorCode_AccessDeny',
-      // };
       return cb(HTTPSTATUS.OK, res, response);
     } catch (error) {
       return cbError(res, HTTPSTATUS.INTERNAL_SERVER_ERROR, ERRORS.INTERNAL_SERVER_ERROR, error);
@@ -127,7 +121,6 @@ export class AirMobilityController {
     try {
       const airSpace = req?.body?.airSpace as IAirSpace;
       const response = await this.airMobilityService.selectAirspaceArrangementStream(airSpace);
-      console.log(response);
 
       return cb(HTTPSTATUS.OK, res, response);
     } catch (error) {
