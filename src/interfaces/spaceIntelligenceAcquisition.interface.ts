@@ -7,7 +7,7 @@ export interface ISpatialInfoAreaResponse {
   result: {
     objects: ISpatialInfoObject[];
   };
-  error: IErrorType;
+  error?: IErrorType;
 }
 
 export interface ISpatialInfoRegisterRequest {
@@ -96,7 +96,7 @@ interface Microwave {
 
 interface Mobile {
   reference: string;
-  plmnId: PlmnId;
+  plmnId: PlmnId | null;
   voxelValues: MicrowaveVoxelValue[];
 }
 
